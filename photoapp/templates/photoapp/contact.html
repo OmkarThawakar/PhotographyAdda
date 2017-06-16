@@ -1,0 +1,142 @@
+{% extends 'photoapp/base.html' %}
+
+
+{% load staticfiles %}
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="css/grid.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/social.css" />
+<link rel="stylesheet" type="text/css" href="css/slickform.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+
+{% block body %}
+<div class="animsition-overlay">
+  <div class="horBar2Bxx wow fadeInLeftBig" data-wow-duration="3s"></div>
+  <div class="grid flex16">
+    <div class="row">
+      <div class="colw_6">
+	    <h1 id="title-sub1">Photography-Adda.com</h1>
+        <h1 id="title-sub2">CONTACT US</h1>
+      </div>
+      <!-- END colw_6 -->
+
+      <div class="col_6">
+        <div class="box-fix">
+          <h3 class="centered">Find us on social media</h3>
+          <div class="social"> <a href="https://www.facebook.com/Valeron-design-studio-245216518822368/" class="soc-btn facebook"><i class="fa fa-facebook"></i>Facebook</a> <a href="https://twitter.com/ds_valeron" class="soc-btn twitter"><i class="fa fa-twitter"></i>Twitter</a> <a href="https://plus.google.com/116499013539302933204" class="soc-btn google5"><i class="fa fa-google"></i>Google +</a> </div>
+        </div>
+      </div>
+      <!-- END col_6 -->
+
+    </div>
+    <!-- END row -->
+
+  </div>
+  <!-- End GRID FLEX16 -->
+
+  <div class="grid">
+    <div class="row paddtop100">
+      <div class="col_12">
+        <h2 class="title-small center">We love working with clients who love to standout from the crowd</h2>
+      </div>
+      <!-- END col_12 -->
+
+      <div class="colw_6 spec-l-cont border-right">
+        <h3>Contact Info</h3><br />
+        <ul class="contact">
+          <li>SGGSIE&T , vishnupuri , Nanded <span><i class="fa fa-map-marker"></i></span></li>
+          <li><i>Omkar Thawkar </i> Ph no: +91 9403941016 <span><i class="fa fa-phone"></i></span></li>
+          <li><i>Manish Charhate </i> Ph no: +91 9545875126<span><i class="fa fa-phone"></i></span></li>
+          <li>2015bcs003@sggs.ac.in <span><i class="fa fa-envelope"></i></span></li>
+		  <li>manishcharate21@gmail.com<span><i class="fa fa-envelope"></i></span></li>
+          <li>Monday - Friday 5:00 pm - 10:00 pm <span><i class="fa fa-clock-o"></i></span></li>
+        </ul>
+        <hr />
+        <a href="https://www.google.co.in/maps/place/Shri+Guru+Gobind+Singhji+Institute+of+Engineering+and+Technology/@19.1115817,77.2930036,15z/data=!4m5!3m4!1s0x0:0xdb5cf2c503f66628!8m2!3d19.1115817!4d77.2930036"><img src="img/sggs.png" alt="sggs" width="500px" height="250px"/></a> </div>
+      <!-- END col_6 -->
+
+      <div class="colw_6 paddbott100 spec-r-cont">
+        <h3>Contact Form</h3><br /><br />
+        <div class="slickwrap">
+          <div class="slickreporting">
+            <div class="successcontainer"></div>
+            <div class="errorcontainer">
+              <div class="errorshutter"></div>
+              <div class="slickerror"></div>
+            </div>
+          </div>
+          <form method="post" id="slickform" action="javascript:slickcontactparse();">
+            <fieldset>
+              <label><span>*</span><b>Name</b></label>
+              <input id="name" name="name" type="text" value="">
+              <br />
+              <label><span>*</span>Phone</label>
+              <input id="phone" name="phone" type="text" value="">
+              <br />
+              <label><span>*</span>Email</label>
+              <input id="email" name="email" type="text" value="">
+              <br />
+              <label><span>*</span>Comment</label>
+              <textarea name="comment" id="comment" cols="7" rows="9" class="largertextarea"></textarea>
+
+              <input  name="submit" type="submit" value="Submit" class="slickbutton" >
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <!-- END col_6 -->
+
+    </div>
+    <!-- END row -->
+
+  </div>
+  <!-- End GRID FLEX16 -->
+
+  <div class="grid">
+    <div class="row paddbott100">
+
+
+    </div>
+    <!-- END row -->
+
+<footer style="background:#363636">
+  <div class="main-gradient">
+    
+  </div>  
+  &nbsp;
+</footer>
+
+  <div class="dots">
+    <div class="fade-top">
+    </div>
+  </div>
+    <p class="dolje"> Web-Developers and Designers | websites & IOS apps <a href="index.html" class="linkline">Omkar Thawakar, Manish Charhate</a></p>
+  </div>
+  <!-- End GRID -->
+</div>
+<!-- END .animsition-overlaj -->
+{% endblock %}
+
+{% load staticfiles %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.matchHeight-min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/animsition.min.js"></script>
+<script src="js/Slickform.js"></script>
+<script src="js/functions.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15815880-3']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
