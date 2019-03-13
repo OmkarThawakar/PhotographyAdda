@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for http://www.photographyadda.com/</title>
+  <link>http://www.photographyadda.com/</link>
+
+<item>
+     <link>http://www.photographyadda.com/accounts/</link>
+     <title>Home</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/reset_password/</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/gallery/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/photographers/</link>
+     <title>Photographers</title>
+     <description>Photographers</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/login/</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/about/</link>
+     <title>About</title>
+     <description>About</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/contact/</link>
+     <title>Contact</title>
+     <description>Contact</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/register/</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/16/album_set</link>
+     <title>Album_Set</title>
+     <description>Album_Set</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/15/album_set</link>
+     <title>Album_Set</title>
+     <description>Album_Set</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/14/album_set</link>
+     <title>Album_Set</title>
+     <description>Album_Set</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/13/album_set</link>
+     <title>Album_Set</title>
+     <description>Album_Set</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/?page=2</link>
+     <title>Home</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/15/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/15/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/14/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/14/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/13/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/13/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/12/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/12/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/10/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/10/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/9/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/9/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/8/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/8/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/7/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/7/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/5/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/5/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/photographers/?page=2</link>
+     <title>Photographers</title>
+     <description>Photographers</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/?page=1</link>
+     <title>Home</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/forum/create_post/</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/create_album/</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/profile/edit/my_profile</link>
+     <title>Update_Profile</title>
+     <description>Update_Profile</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/random_photo/</link>
+     <title>Login</title>
+     <description>Login</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/change_password/</link>
+     <title>Change Password</title>
+     <description>Change Password</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/logout/</link>
+     <title>Logged Out</title>
+     <description>Logged Out</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/forum/</link>
+     <title>Posts</title>
+     <description>Posts</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/7/my_uploads/?page=2</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/5/my_uploads/?page=2</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/4/my_albums/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/4/my_uploads/</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/photographers/?page=1</link>
+     <title>Photographers</title>
+     <description>Photographers</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/7/my_uploads/?page=1</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>4</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/5/my_uploads/?page=1</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>4</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/4/my_uploads/?page=2</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>4</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.photographyadda.com/accounts/4/my_uploads/?page=1</link>
+     <title>Gallery</title>
+     <description>Gallery</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>5</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
