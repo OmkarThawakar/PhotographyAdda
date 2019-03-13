@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<main class="text-center mt-5 mb-5">
+<div class="container pt-5">
+<section class="form-simple pt-5">
+    <!--Form with header-->
+    <div class="card wow fadeInUp">
+        <!--Header-->
+        <div class="header pt-3 primary-color lighten-2">
+            <div class="text-center">
+                <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Log in</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form method="post">
+          {% csrf_token %}
+            <!--Body-->
+            <div class="md-form">
+                {{form.username}}
+                <label for="Form-name">username</label>
+            </div>
+            <div class="md-form pb-3">
+                {{form.password}}
+                <label for="Form-password">Password</label>
+                <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="{% url 'accounts:reset_password' %}" class="dark-grey-text font-bold ml-1"> Password?</a></p>
+            </div>
+            <div class="text-center mb-4">
+                <button type="submit" class="btn btn-deep-orange" >Log-In</button>
+            </div>
+            <p class="font-small grey-text d-flex justify-content-center">Don't have an account? <a href="{% url 'accounts:register' %}" class="dark-grey-text font-bold ml-1"> Sign up</a></p>
+        </form>
+        </div>
+    </div>
+    <!--/Form with header-->
+</section>
+</div>
+</main>
+{% endblock %}

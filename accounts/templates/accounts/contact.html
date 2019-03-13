@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block title %} <title>Contact-photographyadda</title> {% endblock %}
+{% block body %}
+{% load staticfiles %}
+<link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+.content-header{
+  font-family: 'Oleo Script', cursive;
+  color:#fcc500;
+  font-size: 45px;
+  }
+.col-lg-7 .row .col-md-4 .fa{
+  border-radius: 50%;
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  vertical-align: middle;
+  float: none;
+  background: #4060A5;
+  color: #fff;
+}
+
+</style>
+<br />
+<main class="pt-5">
+<div class="container">
+<!--Section: Contact v.1-->
+<section class="section pb-5">
+    <!--Section heading-->
+    <center><h2 class="section-heading h1 pt-4 wow fadeInUp">Get in
+      <span class="content-header">Touch with us</span>
+    </h2></center>
+    <!--Section description-->
+    <p class="section-description pt-4 pb-4">If you have any queries then please contact us here. We are always happy to solve any queries about photographyadda and anything related to django and python.</p>
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-5 mb-4">
+            <!--Form with header-->
+            <div class="card ">
+                <div class="card-body z-depth-2">
+                    <!--Header-->
+                    <center>
+                    <div class="form-header">
+                        <h3 class="pb-3"><i class="fa fa-envelope"></i> Write to us</h3>
+                    </div>
+                    <p>We'll write rarely, but only the best content.</p></center>
+                    <br>
+                    <!--Body-->
+                    <form role="form" action="" method="post">
+                      {% csrf_token %}
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        {{ form.contact_name }}
+                        <label for="form-name">Your Name</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        {{ form.contact_email }}
+                        <label for="form-email">Email</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-tag prefix grey-text"></i>
+                        {{ form.content }}
+                        <label for="form-Subject">Content</label>
+                    </div>
+                    <br /><br /><br />
+                    <div class="text-center">
+                        <button class="btn btn-light-blue waves-effect waves-light" type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+            </div>
+            <!--Form with header-->
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-lg-7">
+            <!--Google map-->
+            <div id="map-container" class="z-depth-1-half map-container" style="height: 400px"></div>
+            <br>
+            <!--Buttons-->
+            <div class="row text-center">
+                <div class="col-md-4">
+                        <div class="text-center mb-2">
+                            <i class="fa fa-map-marker z-depth-2"></i>
+                        </div>
+                    <p>Vishnupuri , 431606</p>
+                    <p>Nanded , Maharashtra</p>
+                </div>
+                <div class="col-md-4">
+                        <div class="text-center mb-2">
+                            <i class="fa fa-phone z-depth-2"></i>
+                        </div>
+                    <p>+91 9403941016</p>
+                    <p>+91 9545875126</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center mb-2">
+                        <i class="fa fa-envelope z-depth-2"></i>
+                    </div>
+                    <p>omee0805@gmail.com</p>
+                    <p>manish.charhate@yahoo.com</p>
+                </div>
+            </div>
+        </div>
+       <!--Grid column-->
+    </div>
+</section><!--Section: Contact v.1-->
+</div>
+<!--Google Maps-->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBRMIxjPgc4AzCYN4JLTm9YJ0eu0jUPZVQ"></script>
+<!--Google Maps Settings-->
+ <script>
+        function init_map() {
+            var var_location = new google.maps.LatLng(19.1116, 77.2931);
+            var var_mapoptions = {center: var_location,zoom: 15};
+            var var_marker = new google.maps.Marker({position: var_location,map: var_map,title: "Nanded"});
+            var var_map = new google.maps.Map(document.getElementById("map-container"),
+                var_mapoptions);
+            var_marker.setMap(var_map);
+        }
+        google.maps.event.addDomListener(window, 'load', init_map);
+ </script>
+{% endblock %}

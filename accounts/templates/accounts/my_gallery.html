@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Gallery-photographyadda</title> {% endblock %}
+{% block body %}
+<div class="container">
+<!--Section: Products v.4-->
+<section class="section pb-3">
+    <!--Section heading-->
+    <h1 class="section-heading h1 pt-4">{{ user }}'s Albums</h1>
+    <!--Section description-->
+    <p class="section-description"> Here is your albums {{user}}.</p>
+    <!--Grid row-->
+    <div class="row">
+    {% if albums %}
+    	{% for album in albums %}
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-r">
+            <!--Collection card-->
+            <div class="card collection-card z-depth-1-half">
+                <!--Card image-->
+                <div class="view  hm-zoom text-center" >
+                    <a href="{% url 'accounts:album_set' album.id %}">
+                    <img src="{{ album.album_logo.url }}" class="img-fluid" alt="" style=" height: 300px; max-width: auto; margin: 0 auto; ">
+                    </a>
+                    <div class="stripe dark">
+                        <a>
+                            <p>{{ album.album_title }} <small>{{ album.photographer }}</small><i class="fa fa-chevron-right"></i></p>
+                            <div class="fb-like" data-href="http://www.photographyadda.com/{{ album.album_logo.url }}/" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                            <br />
+                            <!-- add comment -->
+                            <form action="{% url 'accounts:album_comment' album.id %}" method="POST"  style="display: inline;">
+                                {% csrf_token %}
+                                <input type="text" name="comment_body" value="" /><br>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-plus">Add-Comment</span>
+                                </button>
+                            </form>
+                            <br />
+                            <!-- See comments -->
+                            <a  data-toggle="modal" data-target="#commentBox-{{ album.id }}" style="font-family:'Satisfy', cursive; ;"><u>Comments</u></a>
+                        </a>
+                    </div>
+                </div>
+                <!--Card image-->
+            </div>
+            <!--Collection card-->
+        </div>
+        <!--Grid column-->
+        {% endfor %}
+        {% if albums.has_other_pages %}
+		      <ul class="pagination">
+		      {% if albums.has_previous %}
+		        <li><a href="?page={{ photoes.previous_page_number }}">&laquo;</a></li>
+		      {% else %}
+		        <li class="disabled"><span>&laquo;</span></li>
+		      {% endif %}
+		      {% for i in albums.paginator.page_range %}
+		        {% if albums.number == i %}
+		          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+		        {% else %}
+		          <li><a href="?page={{ i }}">{{ i }}</a></li>
+		        {% endif %}
+		      {% endfor %}
+		      {% if albums.has_next %}
+		        <li><a href="?page={{ photoes.next_page_number }}">&raquo;</a></li>
+		      {% else %}
+		        <li class="disabled"><span>&raquo;</span></li>
+		      {% endif %}
+		      </ul>
+    	{% endif %}
+    {% else %}
+    	<h2>No albums</h2>
+    {% endif %}
+    </div>
+    <!--Grid row-->
+</section>
+<!--Section: Products v.4-->
+</div>
+{% for album in albums %}
+<div class="modal fade pb-5" id="commentBox-{{ album.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header light-blue darken-3 white-text">
+                <h4 class="title"><i ></i> Comments</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <style>
+                * {margin:0;padding:0}
+                .image-box {
+                  width:210px;
+                  height:160px;
+                  overflow:hidden;
+                  background-color:white;
+                  border:1px solid #ccc;
+                  margin:0 2px 2px 0;
+                  align-self: center;
+                  color:#333;
+                }
+                .image-container{
+                  height:180px;
+                  padding:5px 5px;
+                  transition:margin-top .4s ease-in-out .4s;
+                }
+                </style>
+                <div class="image-box">
+                  <div class="image-container">
+                    <img width="200" height="150" src="{{ album.album_logo.url }}" alt="{{ photo.id }}">
+                  </div>
+                </div>
+            <p class="font-weight-bold">by:{{ album.user.username }}</p>
+            {% for comment in comments %}
+              {% if comment.album == album %}
+              <li class="wow fadeIn hoverable"> <i class="fa fa-comments" aria-hidden="true"></i>  {{ comment.comment_body }}<small style="color:green;"> by : {{comment.user.first_name}} {{comment.user.last_name}} on {{ comment.pub_date }}</small></li>
+              {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

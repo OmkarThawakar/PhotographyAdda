@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+  {% block title %} <title>About-photographyadda</title> {% endblock %}
+  {% block body %}
+  {% load staticfiles %}
+<style>
+.card-body{
+    background-color: #FF3CAC;
+    background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    color: white;
+}
+.card-title{
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+hr{border-top: 1px solid white;}
+.social .fa.fa-facebook {
+  border-radius: 50%;
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  vertical-align: middle;
+  float: none;
+  background: #4060A5;
+  color: #fff;
+}
+.social .fa.fa-github {
+  border-radius: 50%;
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  vertical-align: middle;
+  float: none;
+  background: #19323c;
+  color: #fff;
+}
+.social .fa.fa-envelope {
+  border-radius: 50%;
+  font-size: 15px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  vertical-align: middle;
+  float: none;
+  background: #d32f2f;
+  color: #fff;
+}
+.social{
+    display: inline-block;
+}
+</style>
+<main class="pt-5">
+    <div class="container">
+        <div class="row mt-5 mb-4">
+            <div class="col-md-12 div-color-2">
+                <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.1s">about website</h3>
+            </div>
+        </div>
+    <!--Card content-->
+    <div class="row">
+        <div class="col-lg-4 col-md-12 wow fadeIn" data-wow-delay="0.2s">
+    <div class="card-body z-depth-1-half mb-3">
+        <!--Title-->
+        <h4 class="card-title text-center">why photographyadda?</h4>
+        <hr>
+        <!--Text-->
+        <p class="card-text">Through photographyadda it's very easy to reach the people. It's a good platform to show your talent in photography. We have made sure to make the website as simple as possible. Not only professional photographers but others can also upload their daily awesome clicks.</p>
+    </div>
+</div>
+    <div class="col-lg-4 col-md-12 wow fadeIn" data-wow-delay="0.4s">
+    <div class="card-body z-depth-1-half mb-3">
+        <!--Title-->
+        <h4 class="card-title text-center">what to do Here ?</h4>
+        <hr>
+        <!--Text-->
+        <p class="card-text">Simply create your account here. Provide your contact details so that customers can reach you easily. Next create album of related photographs or you can post them individually. We will keep on working to add more and more features for you.</p>
+    </div>
+</div>
+<div class="col-lg-4 col-md-12 wow fadeIn" data-wow-delay="0.6s">
+    <div class="card-body z-depth-1-half mb-3">
+        <!--Title-->
+        <h4 class="card-title text-center">technical features</h4>
+        <hr>
+        <!--Text-->
+        <p class="card-text">We have used <u><strong>material design</strong></u> and <u><strong>bootstrap</strong></u> to design this website. The website is created from the scratch. We have used <u><strong>Django framework</strong></u> of python to make it dynamic and more efficient.</p>
+    </div>
+</div>
+</div>
+<!--
+<p><span class="red-text">Note: It's kind request to users not to upload vulgar photographs. It is a professional website. Our admin has full authority to delete such accounts.</span></p>
+-->
+<!--Section: Team v.2-->
+<section class="section team-section">
+
+    <!--Section heading-->
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12 div-color-2">
+            <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.1s">amazing developers</h3>
+        </div>
+    </div>
+    <!--Section description-->
+
+    <div class="row text-center">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-r wow fadeInLeft" data-wow-delay="0.2s">
+
+            <div class="avatar">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="z-depth-1" alt="First sample avatar image">
+            </div>
+            <h4 style="font-weight:bold;" class="mt-3">Omkar Thawkar</h4>
+            <h5>Web Developer</h5>
+            <div class="social mb-4 wow fadeInUp" data-wow-delay="1s">
+            <!--Gmail-->
+            <a href="https://www.google.com/intl/en_in/gmail/about/">
+                <div target="_blank" class="text-center float-left mr-3">
+                    <i class="fa fa-envelope waves-effect z-depth-1 hoverable "></i>
+                </div>
+            </a>
+            <!--Facebook-->
+            <a href="https://www.facebook.com/omkar.thawakar">
+                <div target="_blank" class="text-center float-left mr-3">
+                    <i class="fa fa-facebook waves-effect z-depth-1 hoverable"></i>
+                </div>
+            </a>
+            <!--Github-->
+            <a href="https://github.com/OmkarThawakar">
+                <div target="_blank" class="text-center float-left">
+                    <i class="fa fa-github waves-effect z-depth-1 hoverable"></i>
+                </div>
+            </a>
+        </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-r wow fadeInRight" data-wow-delay="0.2s">
+
+            <div class="avatar">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="z-depth-1" alt="Second sample avatar image">
+            </div>
+            <h4 style="font-weight:bold;" class="mt-3">Manish Charhate</h4>
+            <h5>Web Developer</h5>
+
+            <!--Gmail-->
+            <div class="social mb-4 wow fadeInUp" data-wow-delay="1s">
+            <a href="https://www.google.com/intl/en_in/gmail/about/">
+                <div target="_blank" class="text-center float-left mr-3">
+                    <i class="fa fa-envelope waves-effect z-depth-1 hoverable"></i>
+                </div>
+            </a>
+            <!--Facebook-->
+            <a href="https://www.facebook.com/manish.charhate">
+                <div target="_blank" class="text-center float-left mr-3">
+                    <i class="fa fa-facebook waves-effect z-depth-1 hoverable"></i>
+                </div>
+            </a>
+            <!--Github-->
+            <a href="https://github.com/manish2121">
+                <div target="_blank" class="text-center float-left">
+                    <i class="fa fa-github waves-effect z-depth-1 hoverable"></i>
+                </div>
+            </a>
+        </div>
+        </div>
+        <!--Grid column-->
+
+
+    </div>
+
+</section>
+<!--Section: Team v.2-->
+</div>
+</main>
+{% endblock %}

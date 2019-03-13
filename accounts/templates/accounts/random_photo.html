@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}<title>Upload-Photo</title>{% endblock %}
+{% block body %}
+<main class="text-center mt-5">
+<div class="container pt-5">
+<section class="form-simple mb-5">
+    <!--Form with header-->
+    <div class="card wow fadeInUp">
+        <!--Header-->
+        <div class="header pt-3 indigo lighten-2">
+            <div class="text-center">
+                <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Upload Photo</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form role="form" action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <!--Body-->
+            <div class="md-form">
+                {{form.say_something}}
+                <label for="Form-name">Something About Photo</label>
+            </div>
+            <div class="md-form pb-3">
+                {{form.photo_file}}
+                <label for="Form-password"></label>
+            </div>
+            <div class="text-center mb-4">
+                <button type="submit" class="btn btn-pink" >Upload</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <!--/Form with header-->
+</section>
+</div>
+</main>
+{% endblock %}

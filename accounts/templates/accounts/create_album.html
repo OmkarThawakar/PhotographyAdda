@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} <title>Add Album-photographyadda</title> {% endblock %}
+
+
+{% block body %}
+<main class="text-center mt-5">
+<div class="container pt-5">
+
+    <section class="form-simple pt-5 mb-5">
+    <!--Form with header-->
+    <div class="card">
+        <!--Header-->
+        <div class="header pt-3 grey lighten-2">
+            <div class="text-center">
+                <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Add Album</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form role="form" action="" method="post" enctype="multipart/form-data" id="formUpload" >
+            {% csrf_token %}
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                {{ form.photographer }}
+                <label for="orangeForm-name">Photographer</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-tag prefix grey-text"></i>
+                {{ form.album_title }}
+                <label for="orangeForm-name">Album-Title</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                {{ form.album_logo }}
+                <label for="orangeForm-name"></label>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-unique" type="submit">Add Album</button>
+            </div>
+        </form>
+</div>
+</div>
+    <!--/Form with header-->
+</section>
+</div>
+</main>
+{% endblock %}

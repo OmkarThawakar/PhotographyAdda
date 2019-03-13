@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Profile-photographyadda</title> {% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<style>
+.title strong{
+    font-weight: 900;
+}
+</style>
+<main class="pt-5">
+<div class="container">
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12 div-color-2">
+            <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.1s">My-Profile</h3>
+        </div>
+    </div>
+
+<section class="section team-section mt-5 pb-4">
+<div class="row mb-lg-4 center-on-small-only">
+
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-r pr-5 wow slideInLeft" data-wow-delay="0.1s">
+
+
+                <div class="avatar float-right">
+                    {% if user.userprofile.image %}
+                    <img src="{{ user.userprofile.image.url }}" class="z-depth-1-half rounded" width="300" height="300" alt="img">
+                    {% else %}
+
+                    <img src="https://www.watsonmartin.com/wp-content/uploads/2016/03/default-profile-picture.jpg" class="z-depth-1-half rounded" width="300" height="300" alt="img">
+                    {% endif %}
+
+            </div>
+        </div>
+            <div class="col-lg-6 col-md-12 mb-r wow slideInRight" data-wow-delay="0.1s">
+                <h4 class="title text-capitalize pb-4"><strong>{{user.first_name}} {{user.last_name}}</strong></h4>
+
+                <p class="font-weight-bold indigo-text">Username: {{user.userprofile.user}}</p>
+                <p class="font-weight-bold indigo-text">Description: {{ user.userprofile.about }}</p>
+                <p class="font-weight-bold indigo-text">City: {{ user.userprofile.place }}</p>
+                <p class="font-weight-bold indigo-text">Website: {{ user.userprofile.website }}</p>
+                <p class="font-weight-bold indigo-text">Skills: {{ user.userprofile.skills }}</p>
+                <p class="font-weight-bold indigo-text">Phone: {{ user.userprofile.phone }}</p>
+
+
+
+            </div>
+
+        </div>
+</section>
+
+<!--Albums-->
+<div class="container">
+<section class="pb-5">
+    <div class="row mt-2 mb-4">
+        <div class="col-md-12 div-color-2">
+
+                <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.2s">My Albums</h3>
+
+            <p class="grey-text text-center ml-3 mr-3 mt-1 mb-5">Here are your albums {{ user.username }}</p>
+        </div>
+    </div>
+    <div class="row">
+    <!--Grid column-->
+        <!--Card-->
+        {% for album in albums %}
+        <div class="col-lg-4 col-md-6 pb-3">
+        <div class="card" style="align-self: left;">
+            <!--Card image-->
+            <div class="hm-zoom">
+                <img src="{{ album.album_logo.url }}" class="img-fluid z-depth-4 cover" alt="image">
+                <a href="#">
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title"><strong>{{ album.album_title }}</strong></h4>
+                <!--Text-->
+                <p class="card-text">{{ album.photographer }}</p>
+
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+        <!--/.Card-->
+    <!--Grid column-->
+</div>
+<!--Grid row-->
+<!--See more albums-->
+<div class="text-center mb-2 mt-2">
+  <a class="btn btn-outline-black waves-effect wow fadeIn" data-wow-delay="0.6s" href="{% url 'accounts:my_albums' user.id %}">
+    <strong>See More</strong></a>
+</div>
+<br>
+</section>
+</div>
+<!--/album section-->
+<hr>
+
+<div class="row mt-5 mb-5">
+    <div class="col-md-12 div-color-2">
+        <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.1s">Uploads</h3>
+    </div>
+</div>
+{% include 'accounts/randomphotoes.html' %}
+</div>
+</main>
+	{% endblock %}

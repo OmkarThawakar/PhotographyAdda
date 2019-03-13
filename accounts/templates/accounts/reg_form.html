@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block body %}
+<main class="text-center pt-5">
+<div class="container pt-5">
+    <section class="form-simple pt-5 pb-5">
+    <!--Form with header-->
+    <div class="card wow fadeInUp">
+        <!--Header-->
+        <div class="header pt-3 default-color lighten-2">
+            <div class="text-center">
+                <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Register</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form method="post">
+            {% csrf_token %}
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                {{ form.username }}
+                <label for="orangeForm-name">Username</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                {{ form.first_name }}
+                <label for="orangeForm-name">First-Name</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                {{ form.last_name }}
+                <label for="orangeForm-name">Last-Name</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                {{ form.email }}
+                <label for="orangeForm-email">Email</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                {{ form.password1 }}
+                <label for="orangeForm-pass">Password</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                {{ form.password2 }}
+                <label for="orangeForm-pass">Confirm Password</label>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-default" type="submit">Sign up</button>
+            </div>
+        </form>
+</div>
+</div>
+    <!--/Form with header-->
+</section>
+</div>
+</main>
+{% endblock %}

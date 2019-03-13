@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}<title> Upload Photo </title>{% endblock %}
+{% block body %}
+<div class="container">
+    <section class="form-simple">
+    <!--Form with header-->
+    <div class="card">
+        <!--Header-->
+        <div class="header pt-3 grey lighten-2">
+            <div class="row d-flex justify-content-start">
+                <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Add-Photo</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form role="form" action="" method="post" enctype="multipart/form-data" id="formUpload" >
+            {% csrf_token %}
+            <div class="md-form">
+                <i class="fa fa-tag prefix grey-text"></i>
+                {{ form.about_photo }}
+                <label for="orangeForm-name">About Photo</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-file prefix grey-text"></i>
+                {{ form.file }}
+            </div>
+            <div class="text-center">
+                <button class="btn btn-default" type="submit">Add Photo</button>
+            </div>
+        </form>
+</div>
+</div>
+    <!--/Form with header-->
+</section>
+</div>
+{% endblock %}

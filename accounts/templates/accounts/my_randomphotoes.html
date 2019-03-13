@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block title %}<title>Gallery</title> {% endblock %}
+{% block body %}
+{% load staticfiles %}
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+<style>
+    .cover{
+  object-fit:cover;
+    width:315px;
+    height:350px;
+}
+</style>
+<main class="text-center pt-5 pb-5">
+<div class="container mt-5 mb-5">
+    <h2 class="font-up font-bold mt-5 mb-5"> {{ user }}'s Uploads </h2>
+    {% if photoes.user == request.user %}
+        <a href="{% url 'accounts:random_photo' %}" style="float: right;">Add New Photo</a>
+    {% endif %}
+<div class="row">
+
+        {% if photoes %}
+          {% for photo in photoes %}
+          <div class="col-md-3 wow zoomIn" data-wow-delay="0.2s">
+            <div class="card mb-5 hoverable">
+              <!--Card image-->
+              <a href="{{ photo.photo_file.url }}"><img class="img-fluid cover" src="{{ photo.photo_file.url }}" alt="Card image cap"></a>
+              <!--Card content-->
+              <div class="card-body text-center">
+                  <!--Title-->
+                  <small style="font-family:'Satisfy', cursive;"><h4 class="card-title" >{{ photo.say_something }}</h4> </small>
+                  <!--Text-->
+                   By :<small class="font-italic"><b>{{ photo.user.username }}</b> on {{ photo.randomphoto_added }}</small>
+                  <div class="fb-like" data-href="http://www.photographyadda.com/{{ photo.photo_file.url }}/" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                  {% if photo.user == request.user %}
+                  <a href="{% url 'accounts:delete_random_photo' photo.id %}" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+                  {% endif %}
+                  <br />
+                  <br />
+                  <!-- add comment -->
+                            <form action="{% url 'accounts:randomphoto_comment' photo.id %}" method="POST"  style="display: inline;">
+                                {% csrf_token %}
+                                <input type="text" name="body" value="" placeholder="Comment-Here" /><br>
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-plus"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                                </button>
+                            </form>
+                            <!--button to display comment in new division -->
+                        <a  data-toggle="modal" data-target="#commentBox-{{ photo.id }}" style="font-family: Caflisch Script ;"><i class="fa fa-comments" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            </div>
+
+            {% cycle '' '' '' '' '' '' %}
+          {% endfor %}
+        {% endif %}
+    <!--Random photoes section ends here-->
+<!--Comment Box for random photo -->
+{% for photo in photoes %}
+<div class="modal fade pb-5" id="commentBox-{{ photo.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content col-sm-9">
+            <!--Header-->
+            <div class="modal-header light-blue darken-3 white-text">
+                <h4 class="title"><i ></i> Comments</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <style>
+                * {margin:0;padding:0}
+                .image-box {
+                  width:210px;
+                  height:160px;
+                  overflow:hidden;
+                  background-color:white;
+                  border:1px solid #ccc;
+                  margin:0 2px 2px 0;
+                  align-self: center;
+                  color:#333;
+                }
+                .image-container{
+                  height:180px;
+                  padding:5px 5px;
+                  transition:margin-top .4s ease-in-out .4s;
+                }
+                </style>
+                <div class="image-box">
+                  <div class="image-container">
+                    <img width="200" height="150" src="{{ photo.photo_file.url }}" alt="{{ photo.id }}">
+                  </div>
+                </div>
+            <p class="font-weight-bold">by:{{ photo.user.username }}</p>
+            {% for comment in comments %}
+              {% if comment.randomphoto == photo %}
+              <li class="wow fadeIn hoverable" style="font-family:'Satisfy', cursive;">{{ comment.body }}<small style="color:green;"> by : {{comment.user.first_name}} {{comment.user.last_name}} on {{ comment.pub_date }}</small></li>
+              {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+{% endfor %}
+
+
+
+<!--Random photo row division ends here-->
+
+    <div class="d-flex pt-5 pb-3">
+      {% if photoes.has_other_pages %}
+      <ul class="pagination pagination-circle mx-auto pg-blue mb-0">
+        {% if photoes.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ photoes.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+
+        {% for i in photoes.paginator.page_range %}
+          {% if photoes.number == i %}
+              <li class="page-item active">
+                <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+              </li>
+          {% else %}
+              <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if photoes.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ photoes.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+
+        {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+
+      </ul>
+      {% endif %}
+    </div>
+
+<!--Section: Products v.4-->
+
+</div>
+</main>
+
+{% endblock %}

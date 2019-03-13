@@ -1,0 +1,575 @@
+
+{% extends 'base.html' %}
+
+{% block title %} <title>Home-photographyadda</title> {% endblock %}
+
+{% block image %}
+{% load staticfiles %}
+<style>
+html,
+body,
+header,
+.view {
+    height: 100%;
+}
+
+.view {
+    background: url("{% static 'accounts/images/newyork.jpg' %}")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.flex-center {
+    color: #fff;
+}
+</style>
+      <!--Mask-->
+      <div class="view hm-black-light z-depth-3">
+          <div class="full-bg-img flex-center">
+              <ul>
+                  <li>
+                      <h1 class="h1-responsive wow fadeInDown">Welcome to PhotographyAdda</h1>
+                      <hr class="hr-light wow fadeInLeft" style="animation-name: none; visibility: visible;">
+                  </li>
+                  <li>
+                      <p class="wow fadeInDown" data-wow-delay="0.2s">The online community of photolovers and photographers</p>
+                  </li>
+                  <li>
+                      <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg wow fadeInLeft">Sign up!</a>
+                  </li>
+                  <li class="animated bounce infinite pt-5">
+                     <a href="javascript:" id="return-to-bottom"> <i class="fa fa-angle-double-down fa-4x" aria-hidden="true"></i></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <!--/.Mask-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script><script>new WOW().init();</script>
+
+{% endblock %}
+{% block body %}
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'accounts/css/gallery.css' %}">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+<script src='https://cdn2.hubspot.net/hub/322787/hub_generated/style_manager/1440007714979/custom/page/hack-a-thon-3/masonry.min.min.js'></script>
+<script src='https://cdn2.hubspot.net/hub/322787/hub_generated/style_manager/1440007849180/custom/page/hack-a-thon-3/isotope.min.js'></script>
+<script src="{% static 'accounts/js/gallery.js' %}"></script>
+
+
+<style>
+.feature-box .features-big .fa {
+   font-size: 4rem;
+}
+.feature-box, .feature-box .feature-title{
+  font-weight: 500;
+  margin: 1rem;
+}
+.test{
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{% static 'accounts/images/421545.jpg' %}")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    height:30%;
+    padding: 3.25rem;
+}
+@media (max-width: 576px) {.test{
+    padding-top: 10px;
+    height:40%;
+  }}
+.carousel-item .card{
+  background: transparent;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,.16), 0 0px 0px 0 rgba(0,0,0,.12)
+}
+.carousel{
+  position:initial;
+}
+.cover{
+  object-fit: cover;
+  width:400px;
+  height: 400px;
+}
+.cover-photographer{
+  object-fit: cover;
+  width:450px;
+  height: 550px;
+}
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 0px;
+    top: 8px;
+    font-size: 28px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+#return-to-bottom {
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-bottom i {
+    color: #fff;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+.snip1336 {
+  font-family: 'Roboto', Arial, sans-serif;
+
+
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: #141414;
+}
+.snip1336 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1336 img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.snip1336 figcaption {
+  width: 100%;
+  background-color: #141414;
+  padding: 25px;
+  position: relative;
+}
+
+.snip1336 figcaption a {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.snip1336 figcaption a:hover {
+  opacity: 1;
+}
+.snip1336 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 25px;
+  z-index: 1;
+  max-width: 90px;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.snip1336 .follow {
+  margin-right: 4%;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+.snip1336 h4 {
+  margin: 0 0 5px;
+  font-weight: 300;
+}
+.snip1336 h4 span {
+  display: block;
+  font-size: 0.6em;
+  color: #2980b9;
+}
+.snip1336 p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+@media (min-width: 577px){
+.photoadda .divider-new {
+    margin-left: 30%;
+    margin-right: 30%;
+}}
+
+</style>
+<main class="text-center pt-5 photoadda">
+<section id="best-features">
+    <div class="container pb-5">
+        <div class="row mt-5 mb-4">
+            <div class="col-md-12 div-color-2">
+                <div class="divider-new">
+                    <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.1s">about</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        <!--First columnn-->
+        <div class="col-md-4">
+            <!--Card-->
+            <div class="card hoverable mb-4 wow flipInX" data-wow-delay="0.2s">
+                <!--Card image-->
+                <div class="overlay hm-white-slight">
+                    <i class="fa fa-camera fa-5x  blue-text pt-3" aria-hidden="true"></i>
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div>
+                <!--/.Card image-->
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title blue-text">Photographers</h4>
+                    <hr>
+                    <!--Text-->
+                    <p class="card-text">Create an account at photographyadda. Next you need to make albums or you can straighforwardly upload photographs.</p>
+                </div>
+                <!--/.Card content-->
+            </div>
+            <!--/.Card-->
+        </div>
+        <!--First columnn-->
+        <!--Second columnn-->
+        <div class="col-md-4">
+            <!--Card-->
+            <div class="card hoverable mb-4 wow flipInX" data-wow-delay="0.4s">
+                <!--Card image-->
+                <div class="overlay hm-white-slight">
+                    <i class="fa fa-heart fa-5x red-text pt-3" aria-hidden="true"></i>
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div>
+                <!--/.Card image-->
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title red-text">Photolovers</h4>
+                    <hr>
+                    <!--Text-->
+                    <p class="card-text">You can browse through whole lot of photographs. Contact the suitable photographer as per your requirement.</p>
+                </div>
+                <!--/.Card content-->
+            </div>
+            <!--/.Card-->
+        </div>
+        <!--Second columnn-->
+        <!--Third columnn-->
+        <div class="col-md-4">
+            <!--Card-->
+            <div class="card hoverable mb-4 wow flipInX" data-wow-delay="0.6s">
+                <!--Card image-->
+                <div class="overlay hm-white-slight">
+                    <i class="fa fa-users fa-5x green-text pt-3" aria-hidden="true"></i>
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div>
+                <!--/.Card image-->
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title green-text">Community</h4>
+                    <hr>
+                    <!--Text-->
+                    <p class="card-text">Create a communtiy. Photographers can create their personal profile so that customers can reach you easily.</p>
+                </div>
+                <!--/.Card content-->
+            </div>
+            <!--/.Card-->
+        </div>
+        <!--Third columnn-->
+        <!--Fourth columnn-->
+    </div>
+    </div>
+</section>
+<!--/Section: Best features-->
+<hr >
+
+<section class="section feature-box">
+    <div class="container">
+    <!--Section heading-->
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12 div-color-2">
+            <div class="divider-new">
+                <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.2s">features</h3>
+            </div>
+        </div>
+    </div>
+    <!--Section description-->
+    <!--Grid row-->
+    <div class="row features-big wow fadeIn" data-wow-delay="0.2s">
+        <!--Grid column-->
+        <div class="col-md-4 mb-r">
+            <i class="fa fa-user red-text"></i>
+            <h5 class="feature-title">User Friendly</h5>
+            <p class="grey-text">Photographyadda is user friendly . You can easily manage your account
+             and create your own profile to get start on photographyadda...</p>
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-md-4 mb-r">
+            <i class="fa fa-download cyan-text"></i>
+            <h5 class="feature-title">Download</h5>
+            <p class="grey-text">As a user you can easily download the photographs that you find interesting. All photographs are free to download.</p>
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-md-4 mb-r">
+            <i class="fa fa-coffee orange-text"></i>
+            <h5 class="feature-title">Effortless</h5>
+            <p class="grey-text">You don't need to put extra efforts here. Just sign-up and start uploading photographs and creating albums.</p>
+        </div>
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+    </div>
+</section>
+
+<!--Album section gos here-->
+<!--Albums-->
+<div class="container">
+<section class="pb-5">
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12 div-color-2">
+            <div class="divider-new">
+                <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.2s">Albums</h3>
+            </div>
+            <p class="grey-text text-center ml-3 mr-3 mt-1 mb-5">Here are our Albums . This albums are created by respective users which they want to share with you.</p>
+        </div>
+    </div>
+    <div class="row">
+    <!--Grid column-->
+        <!--Card-->
+        {% for album in albums %}
+        <div class="col-lg-4 col-md-6 pb-3">
+        <div class="card" style="align-self: left;">
+            <!--Card image-->
+            <div class="hm-zoom">
+                <a href="{% url 'accounts:album_set' album.id %}">
+                <img src="{{ album.album_logo.url }}" class="img-fluid z-depth-4 cover" alt="image">
+                </a>
+                <a href="#">
+                    <div class="mask"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title"><strong>{{ album.album_title }}</strong></h4>
+                <!--Text-->
+                <p class="card-text">{{ album.photographer }}</p>
+
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+        <!--/.Card-->
+    <!--Grid column-->
+</div>
+<!--Grid row-->
+<!--See more albums-->
+<div class="text-center mb-2 mt-2">
+  <a class="btn btn-outline-primary waves-effect wow fadeIn" data-wow-delay="0.6s" href="{% url 'accounts:gallery' %}">
+    <strong>See More</strong></a>
+</div>
+
+</section>
+</div>
+<!--/album section-->
+
+
+<!--Our photographers-->
+<div class="container">
+<section>
+    <div class="row mt-5 mb-4">
+        <div class="col-md-12 div-color-2">
+            <div class="divider-new">
+                <h3 class="text-center font-up font-bold mr-3 ml-3 wow fadeInDown" data-wow-delay="0.2s">Photographers</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      {% if photographers %}
+
+      {% for photographer in photographers %}
+        <div class="col-md-4">
+          <figure class="snip1336">
+            {% if photographer.image %}
+            <img class="cover" src="{{ photographer.image.url }}" alt="profile_pic" />
+            {% else %}
+            <img class="cover" src="{% static 'accounts/images/profile_photo.jpg' %}" alt="profile_pic" />
+            {% endif %}
+            <figcaption>
+        <h4 class="text-capitalize">{{ photographer.user.first_name }} {{ photographer.user.last_name }}<span class="mt-1">From : {{ photographer.place }}</span></h4>
+        {% if photographer.website %}
+        <p>{{ photographer.website }}</p>
+        {% else %}
+        <p>Website : {{ photographer.website }}</p>
+        {% endif %}
+        <p>Phone : {{ photographer.phone }}</p>
+        </figcaption>
+          </figure>
+        </div>
+      {% cycle '' '' '' '' '' '' %}
+      {% endfor %}
+
+      {% endif %}
+    </div>
+<!--Grid row-->
+<!--redirect to photographers page..-->
+<div class="text-center mb-2 mt-2">
+  <a class="btn btn-outline-primary waves-effect wow fadeIn" data-wow-delay="0.6s" href="{% url 'accounts:photographers' %}">
+    <strong>See More</strong></a>
+</div>
+
+</section>
+</div>
+<!--/our photographers section-->
+<hr>
+
+<!--random photo section-->
+<div class="container-fluid mt-5 mb-5">
+    <section>
+  {% include 'accounts/randomphotoes.html' %}
+    </section>
+</div>
+<!--See more button-->
+    <div class="text-center mb-2 mt-2">
+        <a class="btn btn-outline-primary waves-effect wow fadeIn" data-wow-delay="0.6s" href="{% url 'accounts:gallery' %}">
+    <strong>See More</strong></a>
+    </div>
+
+<br />
+
+<!--Modal: Contact form-->
+<section>
+    <div class="card pr-0 pl-0">
+    <div class="card-body test">
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+            <li data-target="#multi-item-example" data-slide-to="1"></li>
+            <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+        <!--First slide-->
+        <div class="carousel-item active">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title h2-responsive text-center white-text"><i class="fa fa-quote-left" aria-hidden="true"></i>Don't shoot what it looks like, shoot what it feels like.<i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+                        <p class="text-center font-italic">~David Alan Harvey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.First slide-->
+        <!--Second slide-->
+        <div class="carousel-item">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title h2-responsive text-center white-text"><i class="fa fa-quote-left" aria-hidden="true"></i> I walk, I look, I see, I stop, I photograph. <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+                        <p class="text-center font-italic">~Leon Levinstein</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Second slide-->
+        <!--Third slide-->
+        <div class="carousel-item">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title h2-responsive text-center white-text"><i class="fa fa-quote-left" aria-hidden="true"></i> A camera is a save button for mind's eye. <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+                        <p class="text-center font-italic">~Roger Kingston</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <!--/.Third slide-->
+    </div>
+    <!--/.Slides-->
+    </div>
+    <!--/.Carousel Wrapper-->
+</div><!--card body-->
+</div><!--card-->
+</section>
+
+<a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
+</main>
+<script>new WOW().init();</script>
+<script>
+// ===== Scroll to Top ====
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                     // Scroll to top of body
+    }, 500);
+});
+$('#return-to-bottom').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 730                      // Scroll to top of body
+    }, 500);
+});
+
+</script>
+{% endblock %}

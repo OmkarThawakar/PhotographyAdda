@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}<title>Album_Set</title>{% endblock %}
+
+{% block body %}
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'accounts/css/gallery.css' %}">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+<script src='https://cdn2.hubspot.net/hub/322787/hub_generated/style_manager/1440007714979/custom/page/hack-a-thon-3/masonry.min.min.js'></script>
+<script src='https://cdn2.hubspot.net/hub/322787/hub_generated/style_manager/1440007849180/custom/page/hack-a-thon-3/isotope.min.js'></script>
+<script src="{% static 'accounts/js/gallery.js' %}"></script>
+        
+<div class="container">
+<h2> Details of Album </h2>
+    {% if album.user.is_authenticated %} 
+        <a href="{% url 'accounts:upload_photo' album.id %}" style="float: right;">Add New Photo</a>
+    {% endif %}
+      <div class="row">
+        <div class="col-md-12">
+      <section id="grid-container" class="transitions-enabled fluid masonry js-masonry grid">
+        {% if album %}
+          {% for photo in album.photo_set.all %}
+            <article class="wow zoomIn pb-5">   
+            <div class="card hoverable">
+              <!--Card image-->
+              <a href="{{ photo.file.url }}">
+              <div class="any-class-to-wrap">
+              <img class="img-fluid" src="{{ photo.file.url }}" alt="Card image cap" >
+              </div>
+              </a>
+              <!--Card content-->
+              <div class="card-body">
+                  <!--Text-->
+                  <p class="font-italic">{{ photo.about_photo }}</p>
+                  <div class="fb-like" data-href="http://127.0.0.1:8000/accounts/{{ photo.id }}/like" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div> 
+              </div>
+            </div>
+            </article>   
+            {% cycle '' '' '' '' '' '' %}
+          {% endfor %}
+        {% endif %}
+     </section>
+
+     </div>
+                        
+    </div>  
+</div>
+
+{% endblock %}

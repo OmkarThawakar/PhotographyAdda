@@ -1,0 +1,321 @@
+ {% extends 'base.html' %}
+
+    {% block title %}<title>Profile </title> {% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'accounts/css/gallery.css' %}">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+<script src='https://cdn2.hubspot.net/hub/322787/hub_generated/style_manager/1440007714979/custom/page/hack-a-thon-3/masonry.min.min.js'></script>
+<script src='https://cdn2.hubspot.net/hub/322787/hub_generated/style_manager/1440007849180/custom/page/hack-a-thon-3/isotope.min.js'></script>
+
+<script src="{% static 'accounts/js/gallery.js' %}"></script>
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+.snip1336 {
+  font-family: 'Roboto', Arial, sans-serif;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: #141414;
+}
+.snip1336 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1336 img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.snip1336 figcaption {
+  width: 100%;
+  background-color: #141414;
+  padding: 25px;
+  position: relative;
+}
+.snip1336 figcaption a {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.snip1336 figcaption a:hover {
+  opacity: 1;
+}
+.snip1336 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 25px;
+  z-index: 1;
+  max-width: 90px;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.snip1336 .follow {
+  margin-right: 4%;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+.snip1336 h4 {
+  margin: 0 0 5px;
+  font-weight: 300;
+}
+.snip1336 h4 span {
+  display: block;
+  font-size: 0.6em;
+  color: #2980b9;
+}
+.snip1336 p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+.cover{
+  object-fit:cover;
+    width:315px;
+    height:350px;
+}    
+</style>
+    <br>
+    <main class="pt-5 text-center">
+        <div class="container">
+        <div class="row">
+              {% if photographers %}
+              {% for photographer in photographers %}
+                {% if photographer %}
+                <div class="col-md-4">
+                  <figure class="snip1336 hm-cyan-slight">
+                    {% if photographer.image %}
+                    <img class="cover" src="{{ photographer.image.url }}" alt="sample87" />
+                    {% endif %}
+                    <figcaption>
+                    <h4 class="text-capitalize">{{ photographer.user.first_name }} {{ photographer.user.last_name }}<span>from : {{ photographer.place }}</span></h4>
+                    <p>Website : {{ photographer.website }}</p>
+                    <p>Phone : {{ photographer.phone }}</p>
+                    {% if photographer.id %}
+                    <a href="{% url 'accounts:my_albums' photographer.id %}" class="follow">Albums</a>
+                    <a href="{% url 'accounts:my_uploads' photographer.id %}" class="info">Uploads</a>
+                    {% endif %}
+                    </figcaption>
+                  </figure>
+                </div>
+                {% endif %}
+              {% cycle '' '' '' '' '' '' %}
+              {% endfor %}
+              {% endif %}
+        
+
+        {% if randomphotoes %}
+            {% for photo in randomphotoes %}
+                <article class="wow fadeIn hoverable">
+            <div class="card">
+              <!--Card image-->
+              <a href="{{ photo.photo_file.url }}" target="_blank" ><img class="img-fluid" src="{{ photo.photo_file.url }}" alt="Card image cap">
+              </a>    
+              <!--Card content-->
+              <div class="card-body">
+                  <!--Title-->
+                  <h6 class="card-title text-capitalize">{{ photo.say_something }}</h6>
+                  <!--Text-->
+                  <p class="font-italic">{{ photo.randomphoto_added }}</p>
+                  <p class="font-weight-bold">By:{{ photo.user.username }}</p>
+                  
+                  <div class="fb-like" data-href="http://127.0.0.1:8000/accounts/{{ photo.id }}/like" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div> 
+                  <br>
+                  <!-- add comment -->
+                            <form action="{% url 'accounts:randomphoto_comment' photo.id %}" method="POST"  style="display: inline;">
+                                {% csrf_token %}
+                                <input type="text" name="body" value="" /><br>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-plus">Add-Comment</span>
+                                </button>
+                            </form>
+                        <a data-toggle="modal" data-target="#commentBox-{{ photo.id }}" style="font-family: Caflisch Script ;"><i class="fa fa-comments" aria-hidden="true"></i></a>
+                    </div>
+              </div>
+            </div>
+            </article>        
+                {% cycle '' '' '' '' '' '' %}
+            {% endfor %}
+        {% endif %}
+
+        
+        <div class="row">
+            <section class="section">
+                <div class="container">
+              {% if users %}
+               <h1 class="section-heading h1 pt-4 wow fadeInDown">Our Users</h1>
+                <hr class="hr-light wow fadeInLeft" style="animation-name: none; visibility: visible;">
+              {% for user in users %}
+                {% if user.userprofile %}
+                <div class="col-md-4">
+                  <figure class="snip1336 hm-cyan-slight">
+                    {% if user.userprofile.image %}
+                    <img class="cover" src="{{ user.userprofile.image.url }}" alt="sample87" />
+                    {% endif %}
+                    <figcaption>
+                    <h4 class="text-capitalize">{{ user.first_name }} {{ user.last_name }}<span>from : {{ user.userprofile.place }}</span></h4>
+                    <p>Website : {{ user.userprofile.website }}</p>
+                    <p>Phone : {{ user.userprofile.phone }}</p>
+                    {% if user.id %}
+                    <a href="{% url 'accounts:my_albums' user.id %}" class="follow">Albums</a>
+                    <a href="{% url 'accounts:my_uploads' user.id %}" class="info">Uploads</a>
+                    {% endif %}
+                    </figcaption>
+                  </figure>
+                </div>
+                {% endif %}
+              {% cycle '' '' '' '' '' '' %}
+              {% endfor %}
+              {% endif %}
+                </div>
+          </section>
+        </div>
+
+
+    <div class="container">
+    <section class="section">
+    {% if albums %}
+        <h3 class="section-heading h1 pt-4">Albums for search result</h3>
+        {% for album in albums %}
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-r">
+            <!--Collection card-->
+            <div class="card collection-card z-depth-1-half">
+                <!--Card image-->
+                <div class="view  hm-zoom text-center" >
+                <a href="{% url 'accounts:album_set' album.id %}">
+                    <img src="{{ album.album_logo.url }}" class="img-fluid cover" alt="" style=" height: 300px; max-width: auto; margin: 0 auto; ">
+                </a>
+                    <div class="stripe dark">
+                        <a>
+                            <p>{{ album.album_title }} <small>{{ album.photographer }}</small><i class="fa fa-chevron-right"></i></p>
+                            <div class="fb-like" data-href="http://127.0.0.1:8000/accounts/{{ photo.id }}/like" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div> 
+                            <br />
+                            <!-- add comment -->
+                            <form action="{% url 'accounts:album_comment' album.id %}" method="POST"  style="display: inline;">
+                                {% csrf_token %}
+                                <input type="text" name="comment_body" value="" /><br>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-plus">Add-Comment</span>
+                                </button>
+                            </form>
+                            <br />
+                            <!-- See comments -->
+                            <a  data-toggle="modal" data-target="#commentBox-{{ album.id }}" style="font-family:'Satisfy', cursive; ;"><u>Comments</u></a>
+
+                        </a>
+                    </div>
+                </div>
+                <!--Card image-->
+            </div>
+            <!--Collection card-->
+        </div>
+        <!--Grid column-->
+        {% endfor %}
+    {% endif %}
+    </section>
+    </div>
+
+    <!--Comment Box for random photo -->
+    {% for photo in photoes %}
+    <div class="modal fade" id="commentBox-{{ photo.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                    <h4 class="title"><i ></i> Comments</h4>
+                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>  
+                <img class="img-fluid" src="{{ photo.photo_file.url }}" alt="Card image cap">
+                <h4 class="card-title text-capitalize">{{ photo.say_something }}</h4>
+                <p class="font-weight-bold">by:{{ photo.user.username }}</p>
+                {% for comment in comments %}
+                  {% if comment.randomphoto == photo %}
+                  <p class="wow fadeIn hoverable">{{ comment.body }}<small style="color:green;"> by : {{comment.user.first_name}} {{comment.user.last_name}} on {{ comment.pub_date }}</small></p>   
+                  {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    {% endfor %}
+
+    <!--Comment Box for album comment -->
+{% for album in albums %}
+<div class="modal fade pb-5" id="commentBox-{{ album.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header light-blue darken-3 white-text">
+                <h4 class="title"><i ></i> Comments</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>    
+                <style>
+                * {margin:0;padding:0}
+                .image-box {
+                  width:210px;
+                  height:160px;
+                  overflow:hidden;
+                  background-color:white;
+                  border:1px solid #ccc;
+                  margin:0 2px 2px 0;
+                  align-self: center;
+                  color:#333;
+                }
+                .image-container{
+                  height:180px;
+                  padding:5px 5px;
+                  transition:margin-top .4s ease-in-out .4s;
+                }
+                </style>
+                <div class="image-box">
+                  <div class="image-container">
+                    <img width="200" height="150" src="{{ album.album_logo.url }}" alt="{{ photo.id }}">
+                  </div>
+                </div>
+            <p class="font-weight-bold">by:{{ album.user.username }}</p>
+            {% for comment in comments %}
+              {% if comment.album == album %}
+              <li class="wow fadeIn hoverable">{{ comment.comment_body }}<small style="color:green;"> by : {{comment.user.first_name}} {{comment.user.last_name}} on {{ comment.pub_date }}</small></li>   
+              {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+{% endfor %}
+
+    </div>
+    </div>
+</div>
+</div>
+
+</main>
+
+{% endblock %}

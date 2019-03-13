@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} <title>Update Profile</title> {% endblock %}
+{% block body %}
+<main class="text-center pt-5">
+<div class="container mt-5">
+<section class="form-simple mb-5">
+    <!--Form with header-->
+    <div class="card wow fadeInUp">
+        <!--Header-->
+        <div class="header pt-3 default-color lighten-2">
+            <div class="text-center">
+                <h3 class="white-text mt-3 mb-4 pb-1 mx-5">Update Profile</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <!--Body-->
+            <div class="md-form">
+                {{form.about}}
+                <label for="Form-name">About</label>
+            </div>
+            <div class="md-form">
+                {{form.place}}
+                <label for="Form-name">Place</label>
+            </div>
+            <div class="md-form">
+                {{form.website}}
+                <label for="Form-name">Website</label>
+            </div>
+            <div class="md-form">
+                {{form.skills}}
+                <label for="Form-name">Skills</label>
+            </div>
+            <div class="md-form">
+                {{form.phone}}
+                <label for="Form-name">Phone</label>
+            </div>
+            <div class="md-form">
+                {{form.image}}
+                <label for="Form-name"></label>
+            </div>
+            <div class="text-center mb-4">
+                <button type="submit" class="btn btn-deep-orange" >Update</button>
+            </div>
+            <p class="font-small grey-text d-flex justify-content-center">Don't have an account? <a href="{% url 'accounts:register' %}" class="dark-grey-text font-bold ml-1"> Sign up</a></p>
+        </form>
+        </div>
+    </div>
+    <!--/Form with header-->
+</section>
+</div>
+</main>
+{% endblock %}

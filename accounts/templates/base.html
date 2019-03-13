@@ -1,0 +1,298 @@
+  <html>
+    <head>
+        {% block title %}<title>Login</title>{% endblock %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'accounts/css/bootstrap.min.css' %}" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="{% static 'accounts/css/mdb.min.css' %}" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="{% static 'accounts/css/style.css' %}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+
+    </head>
+<style>
+.flex-center{
+  height: 100%;
+}
+.nav-link {
+  font-weight:bold;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover{
+  background-color: transparent;
+  color: white;
+}
+.fixed-top.opaque {
+  background-color:#5882FA;
+  color: white;
+  transition: background-color .5s ease 0s ;
+}
+.fixed-top.opaque {
+    background-color: color:#0275d8;
+    color: white;
+    transition: background-color .5s ease 0s;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -30px;
+  padding: 0 0 10px 0px;
+}
+</style>
+
+<body>
+
+<header>
+
+<!-- navbar fixed-top navbar-expand-lg navbar-primary scrolling-navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="font-family: 'Satisfy', cursive;">
+    <div class="container-fluid" >
+        <a class="navbar-brand waves-effect waves-light" href="/accounts/"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon">
+            </span>
+        </button>
+
+        <div class="navbar-collapse collapse " id="navbarSupportedContent">
+          {% if user.is_authenticated %}
+            <ul class="navbar-nav mr-auto" >
+                <li class="nav-item active">
+                    <a class="nav-link" href="/accounts/"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:view_profile' %}"><i class="fa fa-child" aria-hidden="true"></i>Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:gallery' %}"><i class="fa fa-file-photo-o" aria-hidden="true"></i>Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:photographers' %}"><i class="fa fa-group" aria-hidden="true"></i>Photographers</a>
+                </li>
+                <li class="nav-item avtar dropdown">
+                <a class="nav-link dropdown-toggle text-capitalize waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% if request.user.userprofile.image %}
+                  <img src="{{ request.user.userprofile.image.url }}" class="img-circle rounded-circle z-depth-0" width="30" height="30" alt="img">
+                  {% endif %}Hi {{user}}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right dropdown-primary scroll-box" aria-labelledby="navbarDropdownMenuLink" style="height: auto;
+                                                                position: relative;
+                                                                overflow-y: scroll;
+                                                                height: 200px;
+                                                                ">
+                    <a class="nav-link" href="{% url 'forum:create_post' %}"><i class="fa fa-share-alt" aria-hidden="true"></i> Create-Post</a>
+                    <a class="dropdown-item waves-effect waves-light" href="{% url 'accounts:create_album' %}"><i class="fa fa-folder-open" aria-hidden="true"></i>Add-Album</a>
+                    <a class="dropdown-item" href="{% url 'accounts:edit_profile' %}"><i class="fa fa-gear" aria-hidden="true"></i><b>Edit</b></a>
+                    <a class="dropdown-item" href="{% url 'accounts:my_profile' %}"><i class="fa fa-male" aria-hidden="true"></i><b>update_profile</b></a>
+                    <a class="dropdown-item" href="{% url 'accounts:random_photo' %}"><i class="fa fa-image" aria-hidden="true"></i><b>upload_photo</b></a>
+                    <a class="dropdown-item" href="{% url 'accounts:change_password' %}"><i class="fa fa-gears" aria-hidden="true"></i><b>Change-Password</b></a>
+
+                    <a class="dropdown-item" href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i><b>Logout</b></a></li>
+              </ul>
+              <!-- Search form -->
+                <form class="form-inline" role="search" method="get" action="{% url 'accounts:search' %}">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.q }}">
+                </form>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'forum:forums' %}"><i class="fa fa-commenting" aria-hidden="true"></i>forums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:about' %}"><i class="fa fa-street-view" aria-hidden="true"></i>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:contact' %}"><i class="fa fa-tty" aria-hidden="true"></i>Contact</a>
+                </li>
+
+
+                </div>
+            </li>
+
+            </ul>
+
+            {% else %}
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/accounts/"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:reset_password' %}">Reset_Password</a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:gallery' %}"><i class="fa fa-file-photo-o" aria-hidden="true"></i>Gallery</a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:photographers' %}"><i class="fa fa-group" aria-hidden="true"></i>Photographers</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link waves-effect waves-light" href="{% url 'accounts:login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="{% url 'forum:forums' %}"><i class="fa fa-commenting" aria-hidden="true"></i>forums</a>
+                </li>
+              <li class="nav-item">
+                  <a class="nav-link waves-effect waves-light" href="{% url 'accounts:about' %}"><i class="fa fa-street-view" aria-hidden="true"></i>About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link waves-effect waves-light" href="{% url 'accounts:contact' %}"><i class="fa fa-tty" aria-hidden="true"></i>Contact</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link waves-effect waves-light" href="{% url 'accounts:register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a>
+              </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+{% block image %}
+
+{% endblock %}
+</header>
+
+{% block javascript %}
+
+{% endblock %}
+<br />
+
+<div class="wrapper">
+{% block body %}
+<!--your code -->
+{% endblock %}
+</div>
+
+<!--Footer goes here-->
+
+<!--Footer-->
+<footer class="page-footer center-on-small-only mdb-color lighten-3">
+
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row my-4">
+
+            <!--First column-->
+            <div class="col-md-4 col-lg-4">
+                <h5 class="title mb-4 font-bold">photographyadda</h5>
+                <p>We have put lot of efforts to create this platform. Hope you liked it. Enjoy it and explore the photography world. </p>
+                <p>Design and developed by Omkar Thawakar and Manish Charhate.</p>
+            </div>
+            <!--/.First column-->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!--Second column-->
+            <div class="col-md-2 col-lg-2 ml-auto">
+                <h5 class="title mb-4 font-bold">About</h5>
+                <ul>
+                    <p><a href="{% url 'accounts:gallery' %}" hreflang="en">GALLERY</a></p>
+                    <p><a href="{% url 'accounts:photographers' %}" hreflang="en">PHOTOGRAPHERS</a></p>
+                    <p><a href="{% url 'accounts:register' %}" hreflang="en">REGISTER</a></p>
+                    <p><a href="{% url 'accounts:about' %}" hreflang="en">ABOUT US</a></p>
+                </ul>
+            </div>
+            <!--/.Second column-->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!--Third column-->
+            <div class="col-md-4 col-lg-3">
+                <h5 class="title mb-4 font-bold">Adress</h5>
+                <!--Info-->
+                <p><i class="fa fa-home mr-3"></i> Vishnupuri , Nanded 431606</p>
+                <p><i class="fa fa-envelope mr-3"></i> omee0805@gmail.com</p>
+                <p><i class="fa fa-envelope mr-3"></i> manish.charhate@yahoo.com</p>
+                <p><i class="fa fa-phone mr-3"></i> + 91 9403941016</p>
+                <p><i class="fa fa-phone mr-3"></i> + 91 9545875126</p>
+            </div>
+            <!--/.Third column-->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!--Fourth column-->
+            <div class="col-md-2 col-lg-2 text-center">
+                <h5 class="title mb-4 font-bold">Follow Us</h5>
+                <!--Social buttons-->
+                <div class="social-section text-center">
+                    <ul>
+
+                        <li><a class="btn-floating btn-sm btn-fb"><i class="fa fa-facebook fa-2x"> </i></a></li>
+                        <li><a class="btn-floating btn-sm btn-tw"><i class="fa fa-twitter fa-2x"> </i></a></li>
+                        <li><a class="btn-floating btn-sm btn-gplus"><i class="fa fa-google-plus fa-2x"> </i></a></li>
+                        <li><a class="btn-floating btn-sm btn-li"><i class="fa fa-codepen fa-2x" aria-hidden="true"></i></a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <!--/.Fourth column-->
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+             Copyright © 2017 <a href="{% url 'accounts:home' %}" hreflang="en" >photographyadda</a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+<script type="text/javascript" src="{% static 'accounts/js/jquery-3.1.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'accounts/js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'accounts/js/mdb.min.js' %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+<script>new WOW().init();</script>
+
+<!-- facebook like button sdk-->
+<div id="fb-root">
+</div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+$(window).scroll(function() {
+  if($(this).scrollTop() > 0)
+  {
+    $('.fixed-top').addClass('opaque');
+  } else {
+    $('.fixed-top').removeClass('opaque');
+  }
+});
+</script>
+
+</body>
+
+
+</html>

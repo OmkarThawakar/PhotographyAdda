@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+{% block title %} <title>Logged Out</title> {% endblock %}
+    {% block body %}
+{% load staticfiles %}
+<style>
+.butn div{
+	display:inline-block;
+}
+</style>
+     <main class="text-center pt-5 mb-5">
+    <div class="container pt-5 mb-5">
+	     <h1 class="pt-5 font-weight-bold">Logged out!!!!!!</h1>
+	     <h4>Visit again....</h4>
+	     <center>
+	     <div class="butn">
+	     	<div class="text-center mb-5 mt-5 ">
+  				<a class="btn btn-primary waves-effect" data-wow-delay="0.6s" href="/accounts/">
+    			<strong>Go to home</strong></a>
+    		</div>
+    		<div class="text-center mb-5 mt-5">
+				<a class="btn btn-primary waves-effect" data-wow-delay="0.6s" href="{% url 'accounts:login' %}">
+    			<strong>Login again</strong></a>
+    		</div>
+    	 </div>
+    	</center>
+</div>
+
+
+    </div>
+   </main>
+   <br><br><br><br>
+    {% endblock %}
