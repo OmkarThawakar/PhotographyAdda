@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block title %}<title>Posts</title>{% endblock %}
+{% block body %}
+<style type="text/css">
+.cover{
+object-fit: cover;
+width:400px;
+height: 300px;
+}
+.cover-post{
+  object-fit: cover;
+  width:auto;
+  height: 300px;
+}
+.chip.chip-md{
+	height: 42px;
+    line-height: 42px;
+    border-radius: 21px;
+}
+.pink.darken-2{
+	background-color: #c2185b!important;
+}
+.chip, .chips .input {
+    display: inline-block;
+}
+.chip {
+	width:absolute;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 12px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+</style>
+<main class="text-center mt-5">
+<div class="container pt-5">
+<!--Section: Blog v.3-->
+<section class="section extra-margins pb-3 text-center text-lg-left">
+    <!--Section heading-->
+    <h2 class="section-heading h1 pt-4 indigo-text text-center">Recent posts</h2>
+    <!--Section description-->
+    <p class="section-description text-center">These are some posts related to photography posted by our users. Hope you will find it useful. </p>
+
+    {% for post in posts %}
+    <!--Grid row-->
+    <hr class="hr-width mb-5 mt-4 pb-3">
+    <div class="row pb-5">
+    	{% if post.photo %}
+        <!--Grid column-->
+        <div class="col-lg-5 ml-auto col-xl-4 pb-3">
+            <!--Featured image-->
+            <div class="view overlay hm-white-slight z-depth-1-half">
+                <img src="{{ post.photo.url }}" class="img-fluid cover" alt="Third sample image">
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+        </div>
+        <!--Grid column-->
+        {% endif %}
+        <!--Grid column-->
+        <div class="col-lg-7 mr-auto col-xl-6">
+            <!--Excerpt-->
+            <a href="" class="green-text"><h6 class="pb-1"><i class="fa fa-camera"></i><strong> Photography</strong></h6></a>
+            <h4 class="mb-3 text-capitalize"><strong>{{ post.user.first_name }} {{ post.user.last_name }}</strong></h4>
+            <p>{{ post.post }}</p>
+            <p>on {{ post.date }}
+	            {% if post.user == request.user %}
+	                  <a href="{% url 'forum:delete_post' post.id %}" ><i class="fa fa-trash fa-1x" aria-hidden="true"></i></a>
+	            {% endif %}
+        	</p>
+            <!-- add comment -->
+            <form action="{% url 'forum:post_comment' post.id %}" method="POST"  style="display: inline;">
+                {% csrf_token %}
+                <input type="text" name="comment" value="" placeholder="comment here" /><br>
+                <button type="submit" class="btn btn-primary btn-sm float-left">
+                <span class="glyphicon glyphicon-plus"><i class="fa fa-send" aria-hidden="true"></i> Add-Comment</span>
+                </button>
+            </form>
+            <a class="btn btn-pink btn-sm float_right" data-toggle="modal" data-target="#commentBox-{{ post.id }}" style="align-self:baseline;"><i class="fa fa-comments" aria-hidden="true"></i> See Comments</a>
+        </div>
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+    {% endfor %}
+</section>
+<!--Section: Blog v.3-->
+{% for post in posts %}
+<div class="modal fade pb-5" id="commentBox-{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content col-sm-12">
+            <!--Header-->
+            <div class="modal-header light-blue darken-3 white-text">
+                <h4 class="title"><i ></i> Comments</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% if comments %}
+            {% for comment in comments %}
+             {% if comment.forum == post %}
+             <div class="chip chip-md pink darken-2 white-text selected">
+                    <img src="{{ comment.user.userprofile.image.url }}" class="img-circle rounded-circle z-depth-0" width="35" height="35" alt="img"> {{ comment.user.first_name }} {{ comment.user.last_name }}
+             </div>
+             <li class="wow fadeIn hoverable pl-5" style="font-family:'Satisfy', cursive;"><i class="fa fa-comments" aria-hidden="true"></i> {{ comment.comment }}<small style="color:grey;" class="pl-1"> on {{ comment.comment_date }}</small></li>
+             <hr class="hr-width ">
+             {% endif %}
+
+            {% endfor %}
+            {% else %}
+            	<h4>No Comments</h4>
+            {% endif %}
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+{% endfor %}
+</div>
+</main>
+
+{% endblock %}

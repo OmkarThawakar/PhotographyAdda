@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}<title> Create Post </title>{% endblock %}
+{% block body %}
+<main class="text-center mt-5">
+<div class="container pt-5 mb-5">
+    <section class="form-simple pt-5">
+    <!--Form with header-->
+    <div class="card">
+        <!--Header-->
+        <div class="header pt-3 cyan lighten-2">
+            <div class="text-center">
+                <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Add to Forum</h3>
+            </div>
+        </div>
+        <!--Header-->
+        <div class="card-body mx-4 mt-4">
+        <form role="form" action="" method="post" enctype="multipart/form-data" id="formUpload" >
+            {% csrf_token %}
+            <div class="md-form">
+                <i class="fa fa-tag prefix grey-text"></i>
+                {{ form.post }}
+                <label for="orangeForm-name">Write Here</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-file prefix grey-text"></i>
+                {{ form.photo }}
+            </div>
+            <div class="text-center">
+                <button class="btn btn-cyan" type="submit"><i class="fa fa-send" aria-hidden="true"></i> Submit</button>
+            </div>
+        </form>
+</div>
+</div>
+    <!--/Form with header-->
+</section>
+</div>
+</main>
+{% endblock %}
